@@ -12,18 +12,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Force delete DATA.txt if it exists
-        run: |
-          rm -f json/DATA.txt
-
-      - name: Verify DATA.txt is deleted
-        run: |
-          if [ -f "json/DATA.txt" ]; then
-            echo "DATA.txt was not deleted"
-            exit 1
-          else
-            echo "DATA.txt successfully deleted"
-          fi
+      - name: Delete DATA.txt and verify deletion
+        run: ./delete_data.sh
 
       - name: Fetch Data
         run: |
