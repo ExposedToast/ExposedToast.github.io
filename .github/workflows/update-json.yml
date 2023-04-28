@@ -14,17 +14,14 @@ jobs:
 
       - name: Fetch JSON data
         run: |
-          curl -v -L -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36" https://www.dextools.io/shared/data/pair?address=0xa43fe16908251ee70ef74718545e4fe6c5ccec9f\&chain=ether --output json/data.json
-
+          curl -v -L -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36" https://www.dextools.io/shared/data/pair?address=0xa43fe16908251ee70ef74718545e4fe6c5ccec9f\&chain=ether --output json/DATA.txt
       - name: Print fetched JSON data
         run: |
-          cat json/data.json
-
+          cat json/DATA.txt
       - name: Check file permissions and ownership
         run: |
-          ls -l json/data.json
-          stat json/data.json
-
+          ls -l json/DATA.txt
+          stat json/DATA.txt
       - name: Commit changes
         env:
           TOKEN: ${{ secrets.secrettoastycode }}
@@ -36,10 +33,9 @@ jobs:
           git remote set-url origin https://${TOKEN}@github.com/ExposedToast/ExposedToast.github.io.git
           git fetch origin main
           git reset --hard origin/main
-          git add json/data.json
+          git add json/DATA.txt
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update JSON data" && git push)
-
-      - name: Print contents of data.json
+      - name: Print contents of DATA.txt
         run: |
-          cat json/data.json
+          cat json/DATA.txt
         shell: bash
