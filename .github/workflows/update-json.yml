@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit changes
         env:
-          TOKEN: ${{ secrets.secrettoastycode }}
+          TOKEN: ${{ secrets.TOKEN }}
         run: |
           git status
           git log --oneline -n 5
