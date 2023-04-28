@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git remote set-url origin https://${TOKEN}@github.com/ExposedToast/ExposedToast.github.io.git
           git fetch origin main
-          git rebase origin/main
           git add json/data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update JSON data" && git push origin main)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update JSON data" && git pull --rebase && git push origin main)
+
 
