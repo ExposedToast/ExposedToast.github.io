@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: Set execute permissions for delete_data.sh
+        run: chmod +x delete_data.sh
+
       - name: Delete DATA.txt and verify deletion
         run: ./delete_data.sh
 
