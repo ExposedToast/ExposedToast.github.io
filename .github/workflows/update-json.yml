@@ -14,7 +14,7 @@ jobs:
 
       - name: Fetch JSON data
         run: |
-          curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36" https://www.dextools.io/shared/data/pair?address=0xa43fe16908251ee70ef74718545e4fe6c5ccec9f&chain=ether | tee json/data.json
+          curl --insecure -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36" https://www.dextools.io/shared/data/pair?address=0xa43fe16908251ee70ef74718545e4fe6c5ccec9f&chain=ether | tee json/data.json
 
       - name: Commit changes
         env:
