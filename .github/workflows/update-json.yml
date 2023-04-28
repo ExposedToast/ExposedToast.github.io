@@ -20,6 +20,11 @@ jobs:
         run: |
           cat json/data.json
 
+      - name: Check file permissions and ownership
+        run: |
+          ls -l json/data.json
+          stat json/data.json
+
       - name: Commit changes
         env:
           TOKEN: ${{ secrets.secrettoastycode }}
