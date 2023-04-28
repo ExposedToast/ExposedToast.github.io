@@ -37,7 +37,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           git add json/data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update JSON data" && git push)
+          git commit -m "Update JSON data" && git push -f
 
       - name: Print contents of data.json
         run: |
